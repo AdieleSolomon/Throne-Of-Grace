@@ -1,10 +1,13 @@
 # To check the status of your repository
 git status
 git pull origin main
+
+
 # normal commit
 git add .
 git commit -m "update $(Get-Date -Format 'yyyy-MM-dd')"
 git push origin main
+
 
 # Initial commit (for new repositories)
 git init
@@ -26,6 +29,8 @@ git push -u origin main --force
 git remote add origin https://github.com/AdieleSolomon/Throne-Of-Grace.git
 git branch -M main
 git pull origin main --allow-unrelated-histories
+
+
 # Resolve any conflicts if they occur
 git add .
 git commit -m "Merge unrelated histories"
@@ -36,6 +41,7 @@ git push -u origin main
 git clone https://github.com/AdieleSolomon/Throne-Of-Grace.git
 cd Throne-Of-Grace
 git remote add origin https://github.com/AdieleSolomon/Throne-Of-Grace.git
+
 
 # If you get an error about being on 'master' instead of 'main':
 # Check current branch
@@ -48,11 +54,9 @@ git branch -M master main
 git push -u origin main --force
 
 
-
 # To set up your Git username and email (only need to do this once)
 git config --global user.name "Your Name"
 git config --global user.email "yR2lK@example.com"
-
 
 
 # To check your Git configuration

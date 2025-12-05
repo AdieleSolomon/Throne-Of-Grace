@@ -105,7 +105,7 @@
         /* Hero Section with Background Image */
         .hero {
             min-height: 85vh;
-            background: url('assets/prophet.png') center center/cover no-repeat;
+            background: url('assets/throne-of-grace-media/prophet.png') center center/cover no-repeat;
             display: flex;
             align-items: center;
             position: relative;
@@ -1370,7 +1370,7 @@
                     </div>
                     <div class="hero-image-container">
                         <div class="hero-image">
-                            <img src="assets/dapo2.png" alt="Pastor">
+                            <img src="assets/throne-of-grace-media/dapo2.png" alt="Pastor">
                         </div>
                     </div>
                 </div>
@@ -1386,13 +1386,13 @@
                         </div>
                         <div class="welcome-image-slider">
                             <div class="slider-container" id="sliderContainer">
-                                <img src="./assets/churchservice.png" class="slider-image active" alt="Church Service">
-                                <img src="./assets/churchservice2.png" class="slider-image" alt="Worship">
-                                <img src="./assets/churchservice3.png" class="slider-image" alt="Community">
-                                <img src="./assets/churchservice4.png" class="slider-image" alt="Teaching">
-                                <img src="./assets/churchservice5.png" class="slider-image" alt="Prayer">
-                                <img src="./assets/gracepeople.png" class="slider-image" alt="People">
-                                <img src="./assets/churchservice6.png" class="slider-image" alt="Event">
+                                <img src="./assets/throne-of-grace-media/churchservice.png" class="slider-image active" alt="Church Service">
+                                <img src="./assets/throne-of-grace-media/churchservice2.png" class="slider-image" alt="Worship">
+                                <img src="./assets/throne-of-grace-media/churchservice3.png" class="slider-image" alt="Community">
+                                <img src="./assets/throne-of-grace-media/churchservice4.png" class="slider-image" alt="Teaching">
+                                <img src="./assets/throne-of-grace-media/churchservice5.png" class="slider-image" alt="Prayer">
+                                <img src="./assets/throne-of-grace-media/gracepeople.png" class="slider-image" alt="People">
+                                <img src="./assets/throne-of-grace-media/churchservice6.png" class="slider-image" alt="Event">
                             </div>
                             <div class="slider-dots" id="sliderDots"></div>
                         </div>
@@ -1402,7 +1402,7 @@
 
             <section class="events-section" style="background-color: cornflowerblue;">
                 <div class="container">
-                    <h2 class="section-title">Upcoming Events</h2>
+                    <h2 class="section-title">Happening at TOG</h2>
                     <div class="events-grid" id="eventsGrid">
                         <!-- Events will be added by JavaScript -->
                     </div>
@@ -1880,19 +1880,19 @@
             const eventsGrid = document.getElementById('eventsGrid');
             if (eventsGrid) {
                 const events = [
-                    {title: "Sunday Worship", date: "Every Sunday", time: "8:00 AM & 10:30 AM", desc: "Join us for powerful worship and teaching."},
-                    {title: "Bible Study", date: "Every Wednesday", time: "6:30 PM", desc: "Midweek study and fellowship."},
-                    {title: "Youth Night", date: "Every Friday", time: "7:00 PM", desc: "Dynamic youth service for ages 13-25."},
-                    {title: "Men's Breakfast", date: "First Saturday", time: "8:00 AM", desc: "Monthly gathering for men."},
-                    {title: "Women's Conference", date: "March 21-23, 2025", time: "9:00 AM Daily", desc: "Annual women's conference."},
-                    {title: "Family Picnic", date: "April 12, 2025", time: "12:00 PM", desc: "Church picnic with food and games."}
+                    {title: "Sunday Worship", date: "Every Sunday", time: "8:00 AM & 10:30 AM", desc: "Join us for powerful worship and teaching.", image: "https://raw.githubusercontent.com/AdieleSolomon/Throne-Of-Grace/main/assets/throne-of-grace-media/1(4).jpg"},
+                    {title: "Bible Study", date: "Every Wednesday", time: "6:30 PM", desc: "Midweek study and fellowship.", image: "https://raw.githubusercontent.com/AdieleSolomon/Throne-Of-Grace/main/assets/throne-of-grace-media/priest-stands-church-holding-open-260nw-2531745679.jpg"},
+                    {title: "Youth Night", date: "Every Friday", time: "7:00 PM", desc: "Dynamic youth service for ages 13-25.", image: "https://raw.githubusercontent.com/AdieleSolomon/Throne-Of-Grace/main/assets/throne-of-grace-media/1(1).jpg"},
+                    {title: "Men's Breakfast", date: "First Saturday", time: "8:00 AM", desc: "Monthly gathering for men.", image: "https://raw.githubusercontent.com/AdieleSolomon/Throne-Of-Grace/main/assets/throne-of-grace-media/churchservice4(1).png"},
+                    {title: "Women's Conference", date: "March 21-23, 2025", time: "9:00 AM Daily", desc: "Annual women's conference.", image: "https://raw.githubusercontent.com/AdieleSolomon/Throne-Of-Grace/main/assets/throne-of-grace-media/1(6).jpg"},
+                    {title: "Family Picnic", date: "April 12, 2025", time: "12:00 PM", desc: "Church picnic with food and games.", image: "https://raw.githubusercontent.com/AdieleSolomon/Throne-Of-Grace/main/assets/throne-of-grace-media/1(3)(1).jpg"}
                 ];
                 
                 events.forEach(event => {
                     const card = document.createElement('div');
                     card.className = 'event-card';
                     card.innerHTML = `
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="${event.title}" class="event-image">
+                        <img src="${event.image}" alt="${event.title}" class="event-image">
                         <div class="event-content">
                             <div class="event-date">${event.date} • ${event.time}</div>
                             <h3 class="event-title">${event.title}</h3>
