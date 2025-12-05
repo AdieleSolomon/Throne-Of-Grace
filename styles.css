@@ -1318,3 +1318,107 @@
             margin: 0 auto 30px;
             line-height: 1.7;
         }
+
+        /* Prayer Request Page Styles */
+        .prayer-request-hero {
+            padding: 100px 0 60px;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .prayer-request-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .prayer-request-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .prayer-request-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .prayer-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .prayer-form-container h2 {
+            font-size: 2rem;
+            color: #1a237e;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .prayer-info-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+        }
+
+        .prayer-info-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .prayer-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .prayer-info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .prayer-info-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: #f3c623;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: #1a237e;
+        }
+
+        .prayer-info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #f3c623;
+            font-weight: 700;
+        }
+
+        .prayer-info-card p {
+            line-height: 1.7;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }

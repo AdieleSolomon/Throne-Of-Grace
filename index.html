@@ -27,6 +27,7 @@
                     <li><a href="#" onclick="showPage('membership'); return false;" class="nav-link">Become a Member</a></li>
                     <li><a href="#" onclick="showPage('media'); return false;" class="nav-link">Media</a></li>
                     <li><a href="#" onclick="showPage('give'); return false;" class="nav-link">Give</a></li>
+                    <li><a href="#" onclick="showPage('prayer'); return false;" class="nav-link">Prayer Request</a></li>
                 </ul>
             </nav>
         </div>
@@ -101,7 +102,7 @@
                     <div class="prayer-inner">
                         <h2>Need Counselling?</h2>
                         <p>Are you facing challenges, seeking guidance, or simply need someone to talk to? We are here for you. Our dedicated team of counselors is available to provide confidential and compassionate support, free of charge.</p>
-                        <a class="prayer-button" href="https://elevationng.org/prayer-request/" target="_blank" rel="noopener noreferrer">
+                        <a class="prayer-button" href="#" onclick="showPage('prayer'); return false;">
                             <svg class="prayer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
                                 <g clip-path="url(#clip0)">
                                     <path d="M16.458 13.9563C16.417 13.9568 16.3764 13.9487 16.3387 13.9325C16.301 13.9164 16.2672 13.8925 16.2392 13.8625L15.833 13.4563C15.815 13.4381 15.8002 13.4169 15.7892 13.3938C15.4823 13.0083 15.3148 12.5303 15.3142 12.0375V9.43125C15.3134 9.32841 15.303 9.22588 15.283 9.125C15.2634 9.02449 15.2341 8.92612 15.1955 8.83125L11.7767 1.33125C11.7442 1.30121 11.7056 1.27842 11.6636 1.26442C11.6216 1.25041 11.5771 1.24549 11.533 1.25C11.2457 1.25 10.97 1.36371 10.7662 1.56631C10.5625 1.76891 10.4471 2.04391 10.4455 2.33125V2.41875L10.9392 7.7875C10.9418 7.83039 10.9356 7.87335 10.9211 7.91379C10.9066 7.95424 10.8841 7.99134 10.8549 8.02286C10.8258 8.05439 10.7905 8.07969 10.7513 8.09724C10.7121 8.11479 10.6697 8.12423 10.6267 8.125C10.5449 8.12726 10.4651 8.09913 10.4028 8.04604C10.3405 7.99295 10.3 7.91866 10.2892 7.8375L9.82675 2.5C9.82338 2.44589 9.82338 2.39161 9.82675 2.3375C9.82675 1.8844 10.0063 1.44976 10.3261 1.12878C10.6459 0.807808 11.0799 0.626654 11.533 0.625001C11.6914 0.624817 11.8471 0.665578 11.9851 0.743329C12.1231 0.821081 12.2386 0.933181 12.3205 1.06875L15.7705 8.56875C15.8247 8.70214 15.8665 8.84022 15.8955 8.98125C15.9261 9.12292 15.9408 9.26757 15.9392 9.4125V12.0188C15.9382 12.3825 16.0667 12.7348 16.3017 13.0125L16.658 13.3813C16.6879 13.4093 16.7117 13.4432 16.728 13.4808C16.7443 13.5184 16.7527 13.559 16.7527 13.6C16.7527 13.641 16.7443 13.6816 16.728 13.7192C16.7117 13.7568 16.6879 13.7907 16.658 13.8188C16.6364 13.8546 16.6074 13.8854 16.5729 13.9091C16.5384 13.9328 16.4992 13.9489 16.458 13.9563Z" fill="currentColor"/>
@@ -425,6 +426,99 @@
                     <h2>Get Involved Today</h2>
                     <p>Join our community and discover how you can grow spiritually, connect meaningfully, and impact lives through our various initiatives and programs.</p>
                     <a class="btn btn-primary" href="#" onclick="showPage('membership'); return false;">Become a Member</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRAYER REQUEST PAGE -->
+        <div id="prayerPage" class="page-content">
+            <section class="prayer-request-hero">
+                <div class="container">
+                    <h1>Prayer Request & Counseling</h1>
+                    <p>Submit your prayer requests and counseling needs. Our caring team is here to support you with prayers, guidance, and compassionate listening.</p>
+                </div>
+            </section>
+
+            <section class="prayer-request-section">
+                <div class="container">
+                    <div class="prayer-form-container">
+                        <h2>Submit Your Request</h2>
+                        <form id="prayerForm">
+                            <div class="form-group">
+                                <label for="prayerName">Your Name *</label>
+                                <input type="text" id="prayerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prayerEmail">Email Address *</label>
+                                <input type="email" id="prayerEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prayerPhone">Phone Number (Optional)</label>
+                                <input type="tel" id="prayerPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="prayerCategory">Request Category *</label>
+                                <select id="prayerCategory" required>
+                                    <option value="">Select a category</option>
+                                    <option value="healing">Healing & Health</option>
+                                    <option value="family">Family & Relationships</option>
+                                    <option value="work">Work & Finance</option>
+                                    <option value="spiritual">Spiritual Growth</option>
+                                    <option value="counseling">Counseling Support</option>
+                                    <option value="loss">Loss & Grief</option>
+                                    <option value="guidance">Guidance & Direction</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="prayerRequest">Your Prayer Request or Concern *</label>
+                                <textarea id="prayerRequest" placeholder="Please share what's on your heart. Be as detailed as you'd like..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="prayerConsent">
+                                    <input type="checkbox" id="prayerConsent" required>
+                                    I'd like our prayer team to contact me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-submit">Submit Request</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="prayer-info-section">
+                <div class="container">
+                    <h2>How We Can Help</h2>
+                    <div class="prayer-info-grid">
+                        <div class="prayer-info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-hands-praying"></i>
+                            </div>
+                            <h3>Prayer Support</h3>
+                            <p>Our dedicated prayer team will intercede on your behalf and remember you in our corporate prayer times.</p>
+                        </div>
+                        <div class="prayer-info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Counseling</h3>
+                            <p>Connect with trained counselors who provide compassionate, confidential support free of charge.</p>
+                        </div>
+                        <div class="prayer-info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Pastoral Care</h3>
+                            <p>Our pastoral team is available to provide spiritual guidance and encouragement during challenging times.</p>
+                        </div>
+                        <div class="prayer-info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community Support</h3>
+                            <p>You're never alone. Our church family stands with you in prayer and practical support.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

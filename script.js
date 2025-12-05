@@ -241,4 +241,14 @@
                     programsGrid.appendChild(card);
                 });
             }
+
+            // Prayer Request form
+            const prayerForm = document.getElementById('prayerForm');
+            if (prayerForm) {
+                prayerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for your prayer request. Our team will pray with you and may contact you for further support. God bless you!');
+                    prayerForm.reset();
+                });
+            }
         });
