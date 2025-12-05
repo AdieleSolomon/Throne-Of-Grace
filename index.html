@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Throne of Grace</title>
+    <style>
+        :root{
+        --max-w:1200px;
+        --primary:#0a2540; /* tweak to match site */
+        --accent:#f3c623;
+        --bg:#fff;
+        --text:#111;
+        --gap:1rem;
+        --radius:8px;
+        --container-padding:16px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      }
+      *{box-sizing:border-box}
+      body{margin:0;color:var(--text);background:var(--bg);line-height:1.45}
+      .container{max-width:var(--max-w);margin:0 auto;padding:0 var(--container-padding)}
+      .site-header{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid #eee;z-index:50}
+      .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+      .logo{font-weight:700;color:var(--primary);text-decoration:none}
+      .nav-toggle{display:none;background:none;border:0;font-size:1.4rem}
+      .main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+      .main-nav a{text-decoration:none;color:var(--text);padding:8px 10px;border-radius:6px}
+      .main-nav a:hover{background:#f5f7fb}
+
+      .hero{min-height:68vh;background-size:cover;background-position:center;display:flex;align-items:center}
+      .hero-inner{padding:48px 0;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.45)}
+      .hero h1{font-size:2.2rem;margin:0}
+      .lead{margin:12px 0 24px;font-size:1.1rem;opacity:0.95}
+      .cta .btn{display:inline-block;padding:10px 18px;border-radius:6px;text-decoration:none;background:var(--accent);color:#111;margin-right:10px}
+      .btn-outline{background:transparent;border:1px solid #fff;color:#fff}
+      .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem}
+      .card{background:#fff;border-radius:8px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.06);text-align:center}
+      .card img{width:100%;height:200px;object-fit:cover;border-radius:6px}
+
+      .site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:32px}
+      .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+      /* CSS For section two */
+      .welcome-section {
+                  background: linear-gradient(135deg, #8bc34a 0%, #689f38 100%);
+                  min-height: 100vh;
+                  display: flex;
+                  align-items: center;
+                  position: relative;
+                  overflow: hidden;
+              }
+
+              /* .container {
+                  max-width: 1200px;
+                  margin: 0 auto;
+                  padding: 0 20px;
+                  width: 100%;
+              } */
+
+              .welcome-inner {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 60px;
+                  align-items: center;
+                  min-height: 500px;
+              }
+
+              .welcome-content {
+                  color: #2e2e2e;
+              }
+
+              .welcome-content h1 {
+                  font-size: 3.5rem;
+                  font-weight: 800;
+                  line-height: 1.1;
+                  margin-bottom: 2rem;
+                  color: #1a1a1a;
+              }
+
+              .welcome-content p {
+                  font-size: 1.2rem;
+                  line-height: 1.6;
+                  margin-bottom: 2.5rem;
+                  color: #2e2e2e;
+                  max-width: 500px;
+              }
+
+              /* .cta {
+                  display: flex;
+                  gap: 1rem;
+                  flex-wrap: wrap;
+              }
+
+              .btn {
+                  display: inline-block;
+                  padding: 15px 30px;
+                  text-decoration: none;
+                  border-radius: 50px;
+                  font-weight: 600;
+                  font-size: 1rem;
+                  transition: all 0.3s ease;
+                  border: 2px solid transparent;
+                  cursor: pointer;
+                  text-align: center;
+                  min-width: 160px;
+              }
+
+              .btn-primary {
+                  background-color: #1a1a1a;
+                  color: white;
+                  border-color: #1a1a1a;
+              }
+
+              .btn-primary:hover {
+                  background-color: #333;
+                  border-color: #333;
+                  transform: translateY(-2px);
+                  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+              } */
+
+              .welcome-image {
+                  position: relative;
+                  border-radius: 20px;
+                  overflow: hidden;
+                  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+                  transform: perspective(1000px) rotateY(-5deg);
+                  transition: transform 0.3s ease;
+              }
+
+              .welcome-image:hover {
+                  transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+              }
+
+              .welcome-image img {
+                  width: 100%;
+                  height: 400px;
+                  object-fit: cover;
+                  display: block;
+              }
+
+              /* Decorative elements */
+              .welcome-section::before {
+                  content: '';
+                  position: absolute;
+                  top: -50%;
+                  right: -10%;
+                  width: 300px;
+                  height: 300px;
+                  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+                  border-radius: 50%;
+              }
+
+              .welcome-section::after {
+                  content: '';
+                  position: absolute;
+                  bottom: -30%;
+                  left: -5%;
+                  width: 200px;
+                  height: 200px;
+                  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+                  border-radius: 50%;
+              }
+
+              /* Responsive Design for section two */
+              @media (max-width: 768px) {
+                  .welcome-inner {
+                      grid-template-columns: 1fr;
+                      gap: 40px;
+                      text-align: center;
+                  }
+
+                  .welcome-content h1 {
+                      font-size: 2.5rem;
+                  }
+
+                  .welcome-content p {
+                      font-size: 1.1rem;
+                      max-width: 100%;
+                  }
+
+                  /* .cta {
+                      justify-content: center;
+                  }
+
+                  .btn {
+                      padding: 12px 25px;
+                      font-size: 0.9rem;
+                  } */
+
+                  .welcome-image {
+                      transform: none;
+                      order: -1;
+                  }
+
+                  .welcome-image img {
+                      height: 300px;
+                  }
+              }
+
+              @media (max-width: 480px) {
+                  .welcome-content h1 {
+                      font-size: 2rem;
+                  }
+
+                  /* .cta {
+                      flex-direction: column;
+                      align-items: center;
+                  }
+
+                  .btn {
+                      width: 100%;
+                      max-width: 250px;
+                  } */
+              }
+
+      /* Responsiveness */
+      @media (max-width:900px){
+        .cards{grid-template-columns:1fr}
+      }
+      @media (max-width:768px){
+        .nav-toggle{display:block}
+        .main-nav{position:absolute;left:0;right:0;top:64px;background:#fff;display:none;padding:12px}
+        .main-nav.open{display:block}
+        .main-nav ul{flex-direction:column}
+        .hero{min-height:50vh}
+        .hero h1{font-size:1.6rem}
+      }
+
+      /* prophet styling */
+      /* Hero section layout */
+      .hero-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        min-height: 500px;
+      }
+
+      .hero-content {
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .hero-image {
+        flex: 0 0 auto;
+        max-width: 400px;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        margin-bottom: -60px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .hero-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .hero-image {
+          max-width: 300px;
+        }
+      }
+
+      /* Welcome Image Slider Styles */
+      .welcome-image-slider {
+        position: relative;
+        max-width: 600px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .slider-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+      }
+
+      .slider-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .slider-image.active {
+        opacity: 1;
+      }
+
+      /* Slider Dots */
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dot.active {
+        background-color: #333;
+      }
+    </style>
+
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="/">Throne Of Grace</a>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false">
+          ☰
+        </button>
+        <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+              <a
+                href="https://onlinechurch.elevationng.org"
+                target="_blank"
+                rel="noopener"
+                >LIVESTREAM</a
+              >
+            </li>
+            <li><a href="/about">ABOUT US</a></li>
+            <li><a href="/expressions">EXPRESSIONS</a></li>
+            <li><a href="/greatness-kit">GREATNESS KIT</a></li>
+            <li><a href="/media">Media</a></li>
+            <li><a href="/give">Give</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="background-image: url('assets/prophet.png')">
+        <div class="hero-inner container">
+          <div class="hero-content">
+            <h1>Welcome to <strong>The Throne of Grace Church</strong></h1>
+            <p class="lead">Let's make greatness common.</p>
+            <p>
+              We are not just a ministry, but a global movement dedicated to
+              empowering individuals with the transformative power of biblical
+              wisdom and practical principles.
+            </p>
+            <div class="cta">
+              <a class="btn" href="/locations.html">Find a location</a>
+              <a
+                class="btn btn-outline"
+                href="https://onlinechurch.elevationng.org"
+                target="_blank"
+                rel="noopener"
+                >Attend Online</a
+              >
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="assets/dapo2.png" alt="Church leader" />
+          </div>
+        </div>
+      </section>
+
+      <section class="welcome-section">
+        <div class="container">
+          <div class="welcome-inner">
+            <div class="welcome-content">
+              <h1>You are Welcome Here!</h1>
+              <p>
+                New here? Get ready to experience a warm family of love, where
+                you're empowered to embrace greatness in life while serving God
+                and humanity. At our core, we believe in living and leading
+                differently.
+              </p>
+              <div class="cta">
+                <a class="btn btn-primary" href="#join">Join our Family</a>
+              </div>
+            </div>
+            <div class="welcome-image-slider">
+              <div class="slider-container">
+                <img
+                  src="./assets/churchservice.png"
+                  class="slider-image active"
+                  alt="Church service 1" />
+                <img
+                  src="./assets/churchservice2.png"
+                  class="slider-image"
+                  alt="Church service 2" />
+                <img
+                  src="./assets/churchservice3.png"
+                  class="slider-image"
+                  alt="Church service 3" />
+                <img
+                  src="./assets/churchservice4.png"
+                  class="slider-image"
+                  alt="Church service 4" />
+                <img
+                  src="./assets/churchservice5.png"
+                  class="slider-image"
+                  alt="Church service 5" />
+                <img
+                  src="./assets/gracepeople.png"
+                  class="slider-image"
+                  alt="Church service 6" />
+                <img
+                  src="./assets/churchservice6.png"
+                  class="slider-image"
+                  alt="Church service 7" />
+              </div>
+              <!-- Optional: Add navigation dots -->
+              <div class="slider-dots" id="sliderDots"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero" style="background-image: url('assets/godman.png')">
+        <h2>Meet Our Global Lead Pastors</h2>
+      </section>
+
+      <!-- add event / media / contact sections similarly -->
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="logo" href="/">The Elevation Church</a>
+          <p>© 2025 The Elevation Church. All rights reserved.</p>
+        </div>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      // mobile nav toggle
+      const btn = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('mainNav');
+      btn?.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+
+      // Image Slider Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.slider-image');
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentIndex = 0;
+        const slideInterval = 3000; // Change image every 3 seconds
+
+        // Create navigation dots
+        images.forEach((_, index) => {
+          const dot = document.createElement('span');
+          dot.classList.add('dot');
+          if (index === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => goToSlide(index));
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+          // Remove active class from all images and dots
+          images.forEach(img => img.classList.remove('active'));
+          dots.forEach(dot => dot.classList.remove('active'));
+
+          // Add active class to current image and dot
+          images[index].classList.add('active');
+          dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % images.length;
+          showSlide(currentIndex);
+        }
+
+        function goToSlide(index) {
+          currentIndex = index;
+          showSlide(currentIndex);
+        }
+
+        // Auto-advance slides
+        setInterval(nextSlide, slideInterval);
+      });
+
+      // Mobile Menu Toggle (if not already in your script.js)
+      const navToggle = document.querySelector('.nav-toggle');
+      const mainNav = document.querySelector('.main-nav');
+
+      if (navToggle) {
+        navToggle.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+          this.setAttribute('aria-expanded', !expanded);
+          mainNav.classList.toggle('active');
+        });
+      }
+    </script>
+  </body>
+</html>
